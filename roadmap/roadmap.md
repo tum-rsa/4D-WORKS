@@ -1,7 +1,7 @@
 # 4D-Works project roadmap
 
 ## Related work: existing metadata practices in published literature and software
-[here we insert our notes, illustrations, etc as mentioned in the kickoff]
+[here we insert our notes, illustrations, etc as mentioned in the kickoff. Illustrations to be kept in the final version should be in the assets folder too.]
 
 ### Metadata practices in published 4D datasets
 

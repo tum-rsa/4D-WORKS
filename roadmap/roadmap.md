@@ -59,7 +59,7 @@ The metadata typically include three major types: descriptive metadata, structur
 
 
 - Structural metadata   
-  ```
+    ```
     .
     ├── 01_auxilary/
     │   ├── Documentation/
@@ -165,7 +165,7 @@ The metadata typically include three major types: descriptive metadata, structur
 
   
 - Structural metadata
-  ```
+    ```
     .
     ├── 01_LiDAR_topobathy_raw .............. raw topo-bathymetric 3D LiDAR point clouds (strip-wise, geo-referenced, no refraction correction, LAZ format)
     ├── 02_LiDAR_topo_raw ................... raw topographic 3D LiDAR point clouds (strip-wise, geo-referenced, LAZ format)
@@ -179,7 +179,7 @@ The metadata typically include three major types: descriptive metadata, structur
     ├── 10_image_sequences_nadir ............ Selected (stereo) image sequences (multiple images taken from the same spot, JPEG format)
     ├── 11_synch_images_oblique.............. Selected synchronized oblique stereo images(JPEG format)
     └── readme.txt........................... Metadata documentation
-  ```
+    ```
 
 
 ### Metadata practices in satellite image time series (SITS)
@@ -341,7 +341,7 @@ catalog/
   - A collection of name/value pairs. In various languages, this is realized as an _object_, record, struct, dictionary, hash table, keyed list, or associative array.
   - An ordered list of values. In most languages, this is realized as an _array_, vector, list, or sequence.
 - Example:
-  ```
+    ```
     {
     "dataset": "Isar Dataset",
     "project_id": "2024-UAV-001",
@@ -368,7 +368,6 @@ catalog/
     "license": "CC-BY 4.0",
     "doi": "xxxxxx"
     }
-
     ```
 
 
@@ -380,7 +379,7 @@ catalog/
 
 - Concept: A human-readable data serialization language for all programming languages. It's commonly used for configuration files and in applications where data is being stored or transmitted.
 - Example:
-  ```
+    ```
     dataset: "Isar Dataset"
     project_id: "2024-UAV-001"
     acquisition_date: "2024-08-12"

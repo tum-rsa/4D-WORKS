@@ -141,7 +141,7 @@ The metadata typically include three major types: descriptive metadata, structur
     ```
 
 
-#### Multi-source 3D obsearvations
+#### Multi-source 3D observations
 
 ##### Pielach River
 
@@ -357,7 +357,7 @@ Note: attribute formats need to be defined (e.g. float32? int8? uint16? etc). ->
 ![image](.\assets\EPT.png)
 ![image](.\assets\EPT2.png)
 
-#### lapsy and pylas
+#### laspy and pylas
 Completely based on LAS (+ copc support), so same metadata info.
 
 #### py4dgeo
@@ -375,6 +375,71 @@ Formats supported:
 
 Metadata:
 ![image](.\assets\CC_metadata.png)
+
+#### pytreedb
+[pytreedb](https://pytreedb.geog.uni-heidelberg.de/about) is a file- and object-based database for managing laser scanning and inventory data of single trees, developed in the SYSSIFOSS project by the 3DGeo Research Group of Heidelberg University and the Institute of Geography and Geoecology (IFGG) of Karlsruhe Institute of Technology (KIT). 
+
+Trees are imported from GeoJSON files which contain information on tree location, species, and tree properties, and link to one or multiple point clouds. Example copied from website:
+```
+{
+  "type": "Feature",
+  "properties": {
+    "id": "PicAbi_KA09_P2T2",
+    "species": "Picea abies",
+    "source": "http://syssifoss.db",
+    "measurements": [
+      {
+        "source": "ALS",
+        "date": "2019-07-05",
+        "canopy_condition": "leaf-on",
+        "height_m": 27.976,
+        "crown_base_height_m": 8.25,
+        "crown_projection_area_convex_hull_m2": 51.586,
+        "crown_projection_area_concave_hull_m2": 40.903,
+        "mean_crown_diameter_m": 8.267
+      },
+      {
+        "crs": "epsg:25832",
+        "position_xyz": [
+          458628.651,
+          5432179.5,
+          161.65329
+        ]
+      }
+    ],
+    "measurements_metadata": [
+      {
+        "reference-url": "https://doi.org/10.5194/essd-2022-39"
+      }
+    ],
+    "data": [
+      {
+        "type": "pointcloud",
+        "mode": "ALS",
+        "date": "2019-07-05",
+        "canopy_condition": "leaf-on",
+        "sensor": "RIEGL VQ-780i",
+        "point_count": 5861,
+        "crs": "epsg:25832",
+        "file": "https://3dweb.geog.uni-heidelberg.de/treedb/PicAbi_KA09_P2T2_2019-07-05_q3_ALS-on.laz",
+        "metadata-url": "https://doi.org/10.5194/essd-2022-39",
+        "quality": 3
+      }
+    ]
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      8.433906,
+      49.041104,
+      161.65329
+    ]
+  }
+}```
+
+#### Synthesis
+Open-source tools have little dedicated functionality to time-related variables in metadata. 4D-WORKS will extend workflows and software interfaces, which are considered in their current form to add onto existent interfaces. 
+Specifically, the new metadata concept may allow direct loading of 3D time series information in py4dgeo (optional parameter `metadata=[json]`, utility function `load_spatiotemporal_analysis_from_stac`), and future loading/visualization/editing functionality in CloudCompare will be considered.
 
 ### Metadata file formats: JSON and YAML
 

@@ -435,7 +435,8 @@ Trees are imported from GeoJSON files which contain information on tree location
       161.65329
     ]
   }
-}```
+}
+```
 
 #### Synthesis
 Open-source tools have little dedicated functionality to time-related variables in metadata. 4D-WORKS will extend workflows and software interfaces, which are considered in their current form to add onto existent interfaces. 

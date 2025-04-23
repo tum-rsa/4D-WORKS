@@ -1,0 +1,7 @@
+name: 4dworks
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pystac

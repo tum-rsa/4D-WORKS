@@ -1,7 +1,12 @@
-name: 4dworks
+name: 4dworks-dev
 channels:
   - conda-forge
   - defaults
 dependencies:
   - python=3.10
   - pystac
+  - shapely
+  - pyproj
+  - laspy
+  - pip:
+      - streamlit

@@ -540,9 +540,9 @@ Specifically, the new metadata concept may allow direct loading of 3D time serie
   - Attribute: A small metadata object. Each file, group and dataset can have associated metadata that describes exactly what the data are.
 
 
-![Why use HDF5](temp/whyHDF5.jpg)
+![Why use HDF5](assets/whyHDF5.jpg)
 
-![HDF5 structure](temp/hdf5_structure4.jpg)
+![HDF5 structure](assets/hdf5_structure4.jpg)
 
 
 

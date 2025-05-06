@@ -3,14 +3,34 @@ Repository for the NFDI4Earth 4D-WORKS project.
 
 Project website: [https://www.asg.ed.tum.de/en/rsa/research/4d-works/](https://www.asg.ed.tum.de/en/rsa/research/4d-works/)
 
+## Schema
+
+### Item
+
+| Field Name | Type | Description  |
+|------------|------|--------------|
+|            |      |              |
+|            |      |              |
+|            |      |              |
+
+### Collection
+
+| Field Name | Type | Description  |
+|------------|------|--------------|
+|            |      |              |
+|            |      |              |
+|            |      |              |
+
+### Catalog
+
+
 ## Todo
 
-- pystac
-  - create.py # create the stac catelogs automatically
-    - input: the root data dir
-    - output: the catelog.json
-  - read.py # load the catelog.json
-  - index.py # interface to the py4dgeo
+- stac4d
+  - stac_point_cloud.py
+- examples
+  - create_catalog.py
+  - query_catalog.py
 - metadata schema
   - catelog-wise
     - collection-wise
@@ -26,7 +46,24 @@ Project website: [https://www.asg.ed.tum.de/en/rsa/research/4d-works/](https://w
 - docs
   - schema
   - env (environment.yaml)
+  - setup.py
   - how to run
+
+
+## Questions collection
+
+- The datetime of each item should be the created datetime or acquired datetime?
+- Naming rules of item, collection, and catalog.
+- Do we want to develop new extension, or just best practice of using existing extension?
+- Co-registration information as a json file? Should we store the after-registration point clouds or original ones?
+
+
+## Ref
+
+- https://github.com/radiantearth/stac-spec/blob/v1.1.0/best-practices.md
+- https://github.com/radiantearth/stac-spec/blob/master/extensions/README.md
+- https://github.com/stac-extensions/pointcloud?tab=readme-ov-file
+- https://github.com/stac-extensions/mlm
 
 
 ## Acknowledgement

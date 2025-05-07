@@ -5,24 +5,51 @@ Project website: [https://www.asg.ed.tum.de/en/rsa/research/4d-works/](https://w
 
 ## Schema
 
+
+
 ### Item
 
+| Field Name | Type | Description  | Remark |
+|------------|------|--------------|--------|
+| pc4d:sensor | String | e.g., Zenmuse L2, Camera | | 
+| pc4d:native_crs | String  |              | Requied |
+| pc4d:datetime | datetime |              | Requied |
+| pc4d:acquisiton_mode | String | e.g., ULS, UPH, TLS |
+| pc4d:orientation |  ||
+| pc4d:data_type | String | e.g., lidar, image, text | Requied |
+| pc4d:point_count | Integer ||
+| pc4d:avg_point_density | Number ||
+| pc4d:spatial_resolution | Number | e.g., sampling interval |
+| pc4d:measurement_error | Number ||
+| pc4d:transform_matrix | Matrix (4x4) | e.g., co-registration transformation matrix |
+| pc4d:reference_epoch | Link | e.g., link to other item |
+| pc4d:registration_error | Number | |
+| pc4d:product_generated | Object | e.g., parameters used for different level of processing products |
+
+#### Additional Field Information
+
+**pc4d:product_generated**
 | Field Name | Type | Description  |
 |------------|------|--------------|
-|            |      |              |
-|            |      |              |
-|            |      |              |
+| product_name | String | e.g., m3c2, DEM, etc |
+| lastupdate | datetime ||
+| param | object/dict | e.g., product-related parameters |
+| derived_from | Link | e.g., the data source |
 
-### Collection
 
+### Collection Summaries
+
+#### by sensor
 | Field Name | Type | Description  |
 |------------|------|--------------|
-|            |      |              |
-|            |      |              |
-|            |      |              |
+| num_items | Integer | Number of items |
+| timestamp_list | list of datetime |              |
+| temporal_resolution | String | Temporal resolution of multiple acquisiton (e.g., monthly, weekly, 1hr) |
 
-### Catalog
 
+
+### Other extensions could be useful
+- processing:level, String, https://github.com/stac-extensions/processing/tree/main?tab=readme-ov-file#suggested-processing-levels
 
 ## Todo
 
@@ -35,7 +62,7 @@ Project website: [https://www.asg.ed.tum.de/en/rsa/research/4d-works/](https://w
   - catelog-wise
     - collection-wise
       - item-wise
-- demo
+- demo ()
   - Catelog (Isar)
     - Collection (UPH)
       - 20240812

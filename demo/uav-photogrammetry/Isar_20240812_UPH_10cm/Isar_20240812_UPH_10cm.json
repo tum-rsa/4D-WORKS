@@ -1,0 +1,74 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "Isar_20240812_UPH_10cm",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          11.304866670963863,
+          47.52614956515996
+        ],
+        [
+          11.304866670963863,
+          47.53181713674847
+        ],
+        [
+          11.316376321608464,
+          47.53181713674847
+        ],
+        [
+          11.316376321608464,
+          47.52614956515996
+        ],
+        [
+          11.304866670963863,
+          47.52614956515996
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    11.304866670963863,
+    47.52614956515996,
+    11.316376321608464,
+    47.53181713674847
+  ],
+  "properties": {
+    "sensor": "photogrammetry",
+    "native_crs": "EPSG:32632",
+    "datetime": "2024-08-12T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json",
+      "title": "Multi-temporal UAV Point Cloud of Isar river"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "UAV Photogrammetry Point Cloud"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "UAV Photogrammetry Point Cloud"
+    }
+  ],
+  "assets": {
+    "point-cloud": {
+      "href": "demo/data/Isar_20240812_UPH_10cm.copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "uav-photogrammetry"
+}

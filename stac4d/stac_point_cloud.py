@@ -35,13 +35,15 @@ class PCCatalog:
             if coll is None:
                 raise KeyError(f"No collection with id '{collection_id}' found in catalog")
             coll.add_item(item)
+            update_collection(coll, item.datetime)
         else:
             self.cat.add_item(item)
 
-    def save(self, dest_path: str = "catalog.json"):
+    def save(self, dest_path: str = "catalog.json"): # the name of the catalog file cannot be changed
         self.cat.normalize_hrefs(os.path.dirname(dest_path) or "./")
         self.cat.save(catalog_type=CatalogType.SELF_CONTAINED)
         print(f"Catalog saved to {dest_path}")
+        
 
 
 def create_collection(id: str, title: str, description: str,
@@ -56,8 +58,50 @@ def create_collection(id: str, title: str, description: str,
         title=title,
         description=description,
         extent=extent,
-        license="CC-BY-4.0"
+        license="CC-BY-4.0",
+        summaries={
+            "num_items": 0,
+            "timestamp_list": {},           
+            "temporal_resolution": " ",
+        },
+
     )
+
+
+# to be used when the collection is already created
+def update_collection(collection: Collection, new_item_timestamp: datetime.datetime):
+    """
+    Update the collection's summaries when a new item is added.
+
+    Args:
+        collection (Collection): The STAC collection to update.
+        new_item_timestamp (datetime.datetime): The timestamp of the newly added item.
+    """
+    
+    # Update the number of items in the collection
+    if "num_items" not in collection.summaries:
+        collection.summaries["num_items"] = 0
+    collection.summaries["num_items"] += 1
+
+    # Update the timestamp list
+    if "timestamp_list" not in collection.summaries:
+        collection.summaries["timestamp_list"] = []
+    collection.summaries["timestamp_list"].append(new_item_timestamp)
+    collection.summaries["timestamp_list"].sort()  
+
+    # Update the temporal resolution
+    timestamp_list = collection.summaries["timestamp_list"]
+    if len(timestamp_list) > 1:
+        time_differences = [  # second as units
+            (timestamp_list[i] - timestamp_list[i - 1]).total_seconds()
+            for i in range(1, len(timestamp_list))
+        ]
+        # take the average of time differences
+        collection.summaries["temporal_resolution"] = sum(time_differences) / len(time_differences)
+    else:
+        # if there's only one timestamp, can't calculate a resolution
+        collection.summaries["temporal_resolution"] = None
+
 
 
 def extract_bbox(laz_path: str):
@@ -80,6 +124,7 @@ def extract_bbox(laz_path: str):
         wgs_bbox = [min(lons), min(lats), max(lons), max(lats)]
 
     return wgs_bbox, native_crs.to_epsg()
+
 
 def extract_datetime(laz_path: str):
 

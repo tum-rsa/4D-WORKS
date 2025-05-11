@@ -1,4 +1,7 @@
 import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from stac4d.stac_point_cloud import (
     PCCatalog, create_collection,
@@ -52,6 +55,7 @@ for fp in [os.path.join(data_dir,"Isar_20240812_UPH_10cm.copc.laz"), os.path.joi
         props={
             "sensor": "photogrammetry",
             "native_crs": f"EPSG:{orig_crs}" if isinstance(orig_crs, int) else orig_crs,
+            "data_type": "photogrammetry",
                },
     )
     cat.add_item(item, collection_id="uav-photogrammetry")
@@ -70,10 +74,12 @@ for fp in [os.path.join(data_dir,"Isar_20250325_ULS_10cm.copc.laz")]:
         props={
             "sensor": "uav-lidar",
             "native_crs": f"EPSG:{orig_crs}" if isinstance(orig_crs, int) else orig_crs,
+            "data_type": "lidar",
                },
     )
     cat.add_item(item, collection_id="uav-lidar")
 
 
 # Save catalog
-cat.save("demo/Isar/catalog.json")
+cat.save("demo/Isar/")
+

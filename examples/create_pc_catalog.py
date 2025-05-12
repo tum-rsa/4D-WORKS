@@ -81,5 +81,5 @@ for fp in [os.path.join(data_dir,"Isar_20250325_ULS_10cm.copc.laz")]:
 
 
 # Save catalog
-cat.save("demo/Isar/")
+cat.save("demo/Isar/catalog.json")
 

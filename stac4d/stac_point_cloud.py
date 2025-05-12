@@ -9,7 +9,7 @@ import laspy
 import re
 from shapely.geometry import mapping, Polygon
 from pyproj import Transformer, CRS
-from pystac import Catalog, Collection, Item, Asset, Extent, SpatialExtent, TemporalExtent, CatalogType
+from pystac import Catalog, Collection, Item, Asset, Extent, SpatialExtent, TemporalExtent, CatalogType, Summaries
 
 # -----------------------------------------
 # STAC Catalog for Point Clouds
@@ -23,8 +23,11 @@ class PCCatalog:
         else:
             raise ValueError("Either 'path' or ('id', 'title', 'description') must be provided.")
 
-    def add_collection(self, collection: Collection):
+    def add_collection(self, collection: Collection, summaries: Summaries = None):
+        if summaries:
+            collection.summaries = summaries
         self.cat.add_child(collection)
+
     
     def add_item(self, item: Item, collection_id: str = None):
         """
@@ -46,8 +49,11 @@ class PCCatalog:
         
 
 
-def create_collection(id: str, title: str, description: str,
-                      spatial_bounds: list[float], temporal_range: list[list[datetime.datetime]], 
+def create_collection(id: str, 
+                      title: str, 
+                      description: str,
+                      spatial_bounds: list[float], 
+                      temporal_range: list[list[datetime.datetime]], 
                       license: str = "CC-BY-4.0"):
     extent = Extent(
         spatial=SpatialExtent([spatial_bounds]),
@@ -58,12 +64,12 @@ def create_collection(id: str, title: str, description: str,
         title=title,
         description=description,
         extent=extent,
-        license="CC-BY-4.0",
-        summaries={
+        license=license,
+        summaries=Summaries({
             "num_items": 0,
-            "timestamp_list": {},           
+            "timestamp_list": [],           
             "temporal_resolution": " ",
-        },
+        }),
 
     )
 
@@ -79,28 +85,28 @@ def update_collection(collection: Collection, new_item_timestamp: datetime.datet
     """
     
     # Update the number of items in the collection
-    if "num_items" not in collection.summaries:
-        collection.summaries["num_items"] = 0
-    collection.summaries["num_items"] += 1
+    if collection.summaries.get_list("num_items") is None:
+        collection.summaries.add("num_items", [0])
+    collection.summaries.get_list("num_items")[0] += 1
 
     # Update the timestamp list
-    if "timestamp_list" not in collection.summaries:
+    if collection.summaries.get_list("timestamp_list") is None:
         collection.summaries["timestamp_list"] = []
-    collection.summaries["timestamp_list"].append(new_item_timestamp)
-    collection.summaries["timestamp_list"].sort()  
+    collection.summaries.get_list("timestamp_list").append(new_item_timestamp.isoformat())
+    collection.summaries.get_list("timestamp_list").sort()  
 
     # Update the temporal resolution
-    timestamp_list = collection.summaries["timestamp_list"]
-    if len(timestamp_list) > 1:
-        time_differences = [  # second as units
-            (timestamp_list[i] - timestamp_list[i - 1]).total_seconds()
-            for i in range(1, len(timestamp_list))
-        ]
-        # take the average of time differences
-        collection.summaries["temporal_resolution"] = sum(time_differences) / len(time_differences)
-    else:
-        # if there's only one timestamp, can't calculate a resolution
-        collection.summaries["temporal_resolution"] = None
+    # timestamp_list = collection.summaries.get_list("timestamp_list")
+    # if len(timestamp_list) > 1:
+    #     time_differences = [  # second as units
+    #         (timestamp_list[i] - timestamp_list[i - 1]).total_seconds()
+    #         for i in range(1, len(timestamp_list))
+    #     ]
+    #     # take the average of time differences
+    #     collection.summaries.get_list("temporal_resolution") = sum(time_differences) / len(time_differences)
+    # else:
+    #     # if there's only one timestamp, can't calculate a resolution
+    #     collection.summaries.get_list("temporal_resolution") = None
 
 
 

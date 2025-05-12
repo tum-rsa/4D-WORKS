@@ -2,44 +2,45 @@
   "type": "Feature",
   "stac_version": "1.1.0",
   "stac_extensions": [],
-  "id": "Isar_20241105_UPH_10cm",
+  "id": "Isar_20250325_ULS_10cm",
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          11.304865722528353,
-          47.52614990714907
+          11.304168266122975,
+          47.52574784830361
         ],
         [
-          11.304865722528353,
-          47.531804159242974
+          11.304168266122975,
+          47.533071797931186
         ],
         [
-          11.31637453036395,
-          47.531804159242974
+          11.31725126961122,
+          47.533071797931186
         ],
         [
-          11.31637453036395,
-          47.52614990714907
+          11.31725126961122,
+          47.52574784830361
         ],
         [
-          11.304865722528353,
-          47.52614990714907
+          11.304168266122975,
+          47.52574784830361
         ]
       ]
     ]
   },
   "bbox": [
-    11.304865722528353,
-    47.52614990714907,
-    11.31637453036395,
-    47.531804159242974
+    11.304168266122975,
+    47.52574784830361,
+    11.31725126961122,
+    47.533071797931186
   ],
   "properties": {
-    "sensor": "photogrammetry",
+    "sensor": "uav-lidar",
     "native_crs": "EPSG:32632",
-    "datetime": "2024-11-05T00:00:00Z"
+    "data_type": "lidar",
+    "datetime": "2025-03-25T00:00:00Z"
   },
   "links": [
     {
@@ -52,23 +53,23 @@
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "UAV Photogrammetry Point Cloud"
+      "title": "UAV LiDAR Point Cloud"
     },
     {
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "UAV Photogrammetry Point Cloud"
+      "title": "UAV LiDAR Point Cloud"
     }
   ],
   "assets": {
     "point-cloud": {
-      "href": "demo/data/Isar_20241105_UPH_10cm.copc.laz",
+      "href": "demo/data/Isar_20250325_ULS_10cm.copc.laz",
       "type": "application/vnd.laszip+copc",
       "roles": [
         "data"
       ]
     }
   },
-  "collection": "uav-photogrammetry"
+  "collection": "uav-lidar"
 }

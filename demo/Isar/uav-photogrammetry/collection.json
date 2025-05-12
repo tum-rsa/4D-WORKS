@@ -1,8 +1,8 @@
 {
   "type": "Collection",
-  "id": "uav-lidar",
+  "id": "uav-photogrammetry",
   "stac_version": "1.1.0",
-  "description": "ULS",
+  "description": "UPH",
   "links": [
     {
       "rel": "root",
@@ -12,7 +12,12 @@
     },
     {
       "rel": "item",
-      "href": "./Isar_20250325_ULS_10cm/Isar_20250325_ULS_10cm.json",
+      "href": "./Isar_20240812_UPH_10cm/Isar_20240812_UPH_10cm.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./Isar_20241105_UPH_10cm/Isar_20241105_UPH_10cm.json",
       "type": "application/geo+json"
     },
     {
@@ -22,7 +27,7 @@
       "title": "Multi-temporal UAV Point Cloud of Isar river"
     }
   ],
-  "title": "UAV LiDAR Point Cloud",
+  "title": "UAV Photogrammetry Point Cloud",
   "extent": {
     "spatial": {
       "bbox": [
@@ -37,11 +42,19 @@
     "temporal": {
       "interval": [
         [
-          "2025-03-25T00:00:00Z",
-          "2025-03-25T00:00:00Z"
+          "2024-08-12T00:00:00Z",
+          "2024-11-05T00:00:00Z"
         ]
       ]
     }
   },
-  "license": "CC-BY-4.0"
+  "license": "CC-BY-4.0",
+  "summaries": {
+    "timestamp_list": [
+      "2024-08-12T00:00:00",
+      "2024-11-05T00:00:00"
+    ],
+    "num_items": 0,
+    "temporal_resolution": " "
+  }
 }

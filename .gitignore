@@ -35,4 +35,4 @@ __pycache__/
 # data
 *.laz
 *.las
-Isar
+# Isar

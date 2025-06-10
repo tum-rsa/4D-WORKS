@@ -65,15 +65,14 @@ Project website: [https://www.asg.ed.tum.de/en/rsa/research/4d-works/](https://w
 ## Todo
 
 - stac4d
-  - stac_point_cloud.py
+  - stac_ext.py # apis to employ stac extension
+  - builder.py # user interface to create a new catalog, e.g., use csv as user input
 - examples
   - create_catalog.py
   - query_catalog.py
 - metadata schema
-  - catelog-wise
-    - collection-wise
-      - item-wise
-- demo ()
+  - STAC topo4d extension https://github.com/tum-rsa/pc4d
+- demo
   - Catelog (Isar)
     - Collection (UPH)
       - 20240812
@@ -82,17 +81,16 @@ Project website: [https://www.asg.ed.tum.de/en/rsa/research/4d-works/](https://w
     - Collection (ULS)
       - 20250325
     - Collection (Imagery)
-- docs
-  - schema
-  - env (environment.yaml)
-  - setup.py
-  - how to run
-
-
-- Item fields table
-- deisgn user input as meta tabular/yaml
-- implement functions property by property
-- add image collection
+- roadmap
+  - introduction
+  - related works
+  - what we are doing
+    - STAC topo4d extension, usage by https://pystac.readthedocs.io/en/latest/tutorials/adding-new-and-custom-extensions.html
+  - Use case
+    - env (environment.yaml)
+    - setup.py
+    - how to run, e.g., a notebook to load data from a csv metafile from PANGAEA, and pass the metainformation to py4dgeo.
+  - Summary
 
 
 ## Ref

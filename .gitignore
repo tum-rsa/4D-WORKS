@@ -35,5 +35,6 @@ __pycache__/
 # data
 *.laz
 *.las
+demo/
 # Isar
 csv

@@ -8,5 +8,5 @@ dependencies:
   - shapely
   - laspy
   - pip:
-      - streamlit
       - pyproj
+      - tqdm

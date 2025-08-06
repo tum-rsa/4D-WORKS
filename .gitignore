@@ -23,3 +23,18 @@ venv.bak/
 
 # OS stuff
 .DS_Store
+
+# temporary files
+temp/
+
+# python cache
+__pycache__/
+*.egg
+*.egg-info/
+
+# data
+*.laz
+*.las
+demo/
+# Isar
+csv

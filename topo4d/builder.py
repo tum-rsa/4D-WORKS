@@ -2,7 +2,7 @@ import pdal
 import json
 from shapely.geometry import box, mapping
 from pystac import Item, Asset
-from topo4d_ext import Topo4DExtension, CRSType, DataType
+from topo4d_ext import Topo4DExtension, DataType
 from datetime import datetime
 from pyproj import Transformer
 import laspy
@@ -75,38 +75,6 @@ def extract_metadata_pdal(filepath: str):
         "geometry": geom,
         "point_count": point_count,
     }
-
-def create_topo4d_item(user_input) -> Item:
-
-    item_id = user_input['id']
-    data_type = user_input['data type']
-    asset_url = user_input['asset_url']
-    dt = datetime.strptime(user_input['datetime'], '%Y-%m-%dT%H:%M:%S')
-
-    pdal_meta = extract_metadata_pdal(asset_url)
-
-    item = Item(
-        id=item_id,
-        geometry=pdal_meta["geometry"],
-        bbox=pdal_meta["bbox"],
-        datetime=dt,
-        properties={}
-    )
-
-    topo_ext = Topo4DExtension.ext(item, add_if_missing=True)
-    topo_ext.native_crs = CRSType(pdal_meta["crs"])
-    topo_ext.point_count = pdal_meta["point_count"]
-    topo_ext.data_type = DataType(data_type)
-
-    asset_name, asset = make_item_asset(asset_url=asset_url, user_input=user_input)
-
-    item.add_asset(
-        asset_name,
-        asset
-    )
-
-    return item
-
 
 def safe_serialize(value):
     """Convert any value to JSON-serializable form."""

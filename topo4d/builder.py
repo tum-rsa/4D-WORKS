@@ -2,7 +2,7 @@ import pdal
 import json
 from shapely.geometry import box, mapping
 from pystac import Item, Asset
-from topo4d_ext import Topo4DExtension, DataType
+from .topo4d_ext import Topo4DExtension, DataType
 from datetime import datetime
 from pyproj import Transformer
 import laspy

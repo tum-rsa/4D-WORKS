@@ -1,12 +1,19 @@
-name: 4dworks-dev
+name: 4dworks
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10
+  - python=3.12
+  - pandas
   - pystac
   - shapely
   - laspy
+  - mkdocs>=1.5.0
+  - mkdocs-material>=9.0.0
+  - pymdown-extensions>=10.0
+  - rpds-py
   - pip:
       - pyproj
       - tqdm
+      - mkdocs-jupyter>=0.24.0
+      - mkdocstrings[python]>=0.24.0

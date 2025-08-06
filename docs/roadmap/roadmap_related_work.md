@@ -98,6 +98,7 @@ The metadata typically include three major types: descriptive metadata, structur
   - 4TU.ResearchData: https://data.4tu.nl/datasets/1aac46fb-7900-4d4c-a099-d2ce354811d2/2
 
 - Metadata availability
+
     | Type                     | Metadata                                                            | Format                   |
     | ------------------------ | ------------------------------------------------------------------- | ------------------------ |
     | Descriptive Metadata     | Title, abstract, author, keywords                                   | PDF, web                 |
@@ -326,34 +327,34 @@ catalog/
 ### Metadata in open-source geospatial software
 
 #### The LAS format (ASPRS):
-![image](.\assets\las_format_def.png)
+![image](./assets/las_format_def.png)
 * VLRs contain the projection, metadata, waveform packet info, etc
 * EVLRs can be appened at the end of the file -> info can be added without rewriting the whole file. They have a higher payload than the VLRs
 
 The header of a LAS file has the following info:
-![image](.\assets\LAS_header1.png)
-![image](.\assets\LAS_header2.png)
+![image](./assets/LAS_header1.png)
+![image](./assets/LAS_header2.png)
 * LAS uses WKT (and for legacy point records formats GeoTiff) to save the CRS
 
 The minimum information for a point in the LAS format is the following (point data record format 0):
-![image](.\assets\LAS_PDRF_0.png)
+![image](./assets/LAS_PDRF_0.png)
 
 Other info can be recorded with the different PDRFs. Here is a recap:
-![image](.\assets\las_cheatsheet.png)
+![image](./assets/las_cheatsheet.png)
 A good recap of what's added in each PDRF is available here: https://laspy.readthedocs.io/en/latest/intro.html#header
 
 Note: attribute formats need to be defined (e.g. float32? int8? uint16? etc). -> Interesting info from pylas:
-![image](.\assets\extra_dimensions.png)
+![image](./assets/extra_dimensions.png)
 
 #### COPC
 * COPC stores data in chunks depending on the octree
     * only point info, no VLRs
     * COPC files MUST contain data with ONLY ASPRS LAS Point Data Record Format 6, 7, or 8
-![image](.\assets\COPC_EPT.png)
+![image](./assets/COPC_EPT_diff.png)
 
 #### EPT
-![image](.\assets\EPT.png)
-![image](.\assets\EPT2.png)
+![image](./assets/EPT.png)
+![image](./assets/EPT2.png)
 
 #### laspy and pylas
 Completely based on LAS (+ copc support), so same metadata info.
@@ -369,10 +370,10 @@ Completely based on LAS (+ copc support), so same metadata info.
 
 #### CloudCompare
 Formats supported:
-![image](.\assets\CC_supported_formats.png)
+![image](./assets/CC_supported_formats.png)
 
 Metadata:
-![image](.\assets\CC_metadata.png)
+![image](./assets/CC_metadata.png)
 
 #### pytreedb
 [pytreedb](https://pytreedb.geog.uni-heidelberg.de/about) is a file- and object-based database for managing laser scanning and inventory data of single trees, developed in the SYSSIFOSS project by the 3DGeo Research Group of Heidelberg University and the Institute of Geography and Geoecology (IFGG) of Karlsruhe Institute of Technology (KIT). 
@@ -538,9 +539,9 @@ Specifically, the new metadata concept may allow direct loading of 3D time serie
   - Attribute: A small metadata object. Each file, group and dataset can have associated metadata that describes exactly what the data are.
 
 
-![Why use HDF5](temp/whyHDF5.jpg)
+![Why use HDF5](./assets/whyHDF5.jpg)
 
-![HDF5 structure](temp/hdf5_structure4.jpg)
+![HDF5 structure](./assets/hdf5_structure4.jpg)
 
 
 

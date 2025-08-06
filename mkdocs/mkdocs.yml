@@ -1,0 +1,79 @@
+site_name: 4D-WORKS
+site_description: NFDI4Earth 4D-WORKS - Topographic 4D STAC Extension
+site_url: https://tum-rsa.github.io/4D-WORKS/
+repo_url: https://github.com/tum-rsa/4D-WORKS
+repo_name: tum-rsa/4D-WORKS
+docs_dir: ../docs
+site_dir: ../site
+
+theme:
+  name: material
+  logo: assets/images/LOGO_TUM_RSA_Invert.png
+  favicon: assets/images/LOGO_TUM_RSA_Invert.png
+  custom_dir: overrides
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+extra_css:
+  - extra.css
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      include_source: true
+      execute: false
+      ignore_h1_titles: True
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [..]
+          options:
+            show_source: true
+            show_root_heading: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Roadmap:
+    - Concept: roadmap/roadmap_concept.md
+    - Related Work: roadmap/roadmap_related_work.md
+  - Notebooks:
+    - STAC Isar: notebooks/make_STAC_Isar.ipynb
+    - STAC Kijkduin: notebooks/make_STAC_kijkduin.ipynb
+  - API Reference:
+    - Topo4D Extension: api/topo4d-extension.md
+    - Builder Utilities: api/builder.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tum-rsa/4D-WORKS

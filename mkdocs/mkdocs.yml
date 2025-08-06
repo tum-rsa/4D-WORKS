@@ -3,13 +3,13 @@ site_description: NFDI4Earth 4D-WORKS - Topographic 4D STAC Extension
 site_url: https://tum-rsa.github.io/4D-WORKS/
 repo_url: https://github.com/tum-rsa/4D-WORKS
 repo_name: tum-rsa/4D-WORKS
-docs_dir: ../
-site_dir: site
+docs_dir: ../docs
+site_dir: ../site
 
 theme:
   name: material
-  logo: mkdocs/assets/images/LOGO_TUM_RSA_Invert.png
-  favicon: mkdocs/assets/images/LOGO_TUM_RSA_Invert.png
+  logo: assets/images/LOGO_TUM_RSA_Invert.png
+  favicon: assets/images/LOGO_TUM_RSA_Invert.png
   custom_dir: overrides
   palette:
     - scheme: default
@@ -34,13 +34,14 @@ theme:
     - content.code.annotate
 
 extra_css:
-  - mkdocs/overrides/extra.css
+  - extra.css
 
 plugins:
   - search
   - mkdocs-jupyter:
       include_source: true
       execute: false
+      ignore_h1_titles: True
   - mkdocstrings:
       handlers:
         python:
@@ -63,7 +64,6 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Roadmap:
-    - Overview: roadmap/roadmap.md
     - Concept: roadmap/roadmap_concept.md
     - Related Work: roadmap/roadmap_related_work.md
   - Notebooks:
@@ -77,23 +77,3 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/tum-rsa/4D-WORKS
-  analytics:
-    provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
-
-
-exclude_docs: |
-  demo/
-  temp/
-  ui/
-  .github/
-  *.pyc
-  __pycache__/
-  .git/
-  .gitignore
-  environment.yaml
-  setup.py
-  CLAUDE.md
-  README.md
-  topo4d/*.py
-  topo4d/__init__.py

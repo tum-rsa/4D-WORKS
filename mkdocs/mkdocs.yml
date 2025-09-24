@@ -69,6 +69,7 @@ nav:
   - Notebooks:
     - STAC Isar: notebooks/make_STAC_Isar.ipynb
     - STAC Kijkduin: notebooks/make_STAC_kijkduin.ipynb
+    - STAC with py4dgeo: notebooks/demo_stac_kijkduin.ipynb
   - API Reference:
     - Topo4D Extension: api/topo4d-extension.md
     - Builder Utilities: api/builder.md

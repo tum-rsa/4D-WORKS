@@ -1,7 +1,10 @@
-# 4D-WORKS
+# 44D-WORKS: Towards metadata standards and automatic curation workflows for 3D time series data considering interoperability and reusability in open-source tools and standard software
+
 Repository for the NFDI4Earth 4D-WORKS project.
 
 Project website: [https://www.asg.ed.tum.de/en/rsa/research/4d-works/](https://www.asg.ed.tum.de/en/rsa/research/4d-works/)
+
+*This repository is under active development now. Stay tuned with updates...*
 
 ## Build
 

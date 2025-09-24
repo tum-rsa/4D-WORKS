@@ -1,13 +1,13 @@
-## Related work: existing metadata practices in published literature and software
-[here we insert our notes, illustrations, etc as mentioned in the kickoff. Illustrations to be kept in the final version should be in the assets folder too.]
+# Related work: existing metadata practices in published literature and software
+<!-- [here we insert our notes, illustrations, etc as mentioned in the kickoff. Illustrations to be kept in the final version should be in the assets folder too.] -->
 
-### Concepts of Metadata
+## Concepts of Metadata
 
 Metadata is "data that provides information about other data", but not the content of the data itself.
 
 <!-- ref: https://en.wikipedia.org/wiki/Metadata -->
 
-#### Types of Metadata
+### Types of Metadata
 
 <!-- ref:
 - https://en.wikipedia.org/wiki/Metadata
@@ -31,11 +31,11 @@ The metadata typically include three major types: descriptive metadata, structur
 | Domain-Specific Metadata | Captures domain specialized information.                                            | Spatial extent, temporal coverage, sensor types, statistics.                 |
 
 
-### Metadata practices in published 4D datasets
+## Metadata practices in published 4D datasets
 
-#### Near-continuous 3D obsearvations on sandy beach 
+### Near-continuous 3D obsearvations on sandy beach 
 
-##### Kijkduin
+#### Kijkduin
 
 - Metadata source
   - Kijkduin_TLS_2016-2017_meta_version_17-2-2022.pdf
@@ -91,7 +91,7 @@ The metadata typically include three major types: descriptive metadata, structur
             └── YYMMDD_HHMMSS_trafomat.txt
     ```
 
-##### Noordwijk
+#### Noordwijk
 
 - Metadata source
   - Noordwijk_PLS_2019-2022_meta.pdf
@@ -140,9 +140,9 @@ The metadata typically include three major types: descriptive metadata, structur
     ```
 
 
-#### Multi-source 3D observations
+### Multi-source 3D observations
 
-##### Pielach River
+#### Pielach River
 
 - Metadata source
   - TUWien re3data: https://researchdata.tuwien.ac.at/records/taz19-r6618
@@ -181,7 +181,7 @@ The metadata typically include three major types: descriptive metadata, structur
     ```
 
 
-### Metadata practices in satellite image time series (SITS)
+## Metadata practices in satellite image time series (SITS)
 1. Landsat (USGS)  
     - [Data download link](https://earthexplorer.usgs.gov/)
     - Example Dataset: LC08_L1TP_123032_20231005_20231012_01_T1 (Landsat 8 Collection 2 Level-1, acquired on October 5, 2023)
@@ -249,7 +249,7 @@ The metadata typically include three major types: descriptive metadata, structur
 
 
 
-### The STAC catalogue
+## The STAC catalogue
 SpatioTemporal Asset Catalog (STAC) specification provides a common structure for describing and cataloging spatiotemporal assets. STAC Catalog manages multi-temporal data by organizing it hierarchically (by time, space, or subject). e.g. [Example page](https://stac101.com/)
 ```
 catalog/
@@ -313,7 +313,7 @@ catalog/
             - [time series extension (deprecated)](https://github.com/stac-extensions/timeseries)
 
 
-#### Use cases
+### Use cases
 
 1. USGS 3DEP LiDAR Point Cloud (3dep-lidar-copc)
    3DEP LiDAR collections provide high-resolution topographic elevation data - 3D point clouds in COPC and derived products as Cloud Optimized GeoTiff.
@@ -324,9 +324,9 @@ catalog/
 
 
 
-### Metadata in open-source geospatial software
+## Metadata in open-source geospatial software
 
-#### The LAS format (ASPRS):
+### The LAS format (ASPRS):
 ![image](./assets/las_format_def.png)
 * VLRs contain the projection, metadata, waveform packet info, etc
 * EVLRs can be appened at the end of the file -> info can be added without rewriting the whole file. They have a higher payload than the VLRs
@@ -346,36 +346,36 @@ A good recap of what's added in each PDRF is available here: https://laspy.readt
 Note: attribute formats need to be defined (e.g. float32? int8? uint16? etc). -> Interesting info from pylas:
 ![image](./assets/extra_dimensions.png)
 
-#### COPC
+### COPC
 * COPC stores data in chunks depending on the octree
     * only point info, no VLRs
     * COPC files MUST contain data with ONLY ASPRS LAS Point Data Record Format 6, 7, or 8
 ![image](./assets/COPC_EPT_diff.png)
 
-#### EPT
+### EPT
 ![image](./assets/EPT.png)
 ![image](./assets/EPT2.png)
 
-#### laspy and pylas
+### laspy and pylas
 Completely based on LAS (+ copc support), so same metadata info.
 
-#### py4dgeo
+### py4dgeo
 * date info 
 * transformation
 
-#### pdal 
+### pdal 
 
-#### QGIS
+### QGIS
 
 
-#### CloudCompare
+### CloudCompare
 Formats supported:
 ![image](./assets/CC_supported_formats.png)
 
 Metadata:
 ![image](./assets/CC_metadata.png)
 
-#### pytreedb
+### pytreedb
 [pytreedb](https://pytreedb.geog.uni-heidelberg.de/about) is a file- and object-based database for managing laser scanning and inventory data of single trees, developed in the SYSSIFOSS project by the 3DGeo Research Group of Heidelberg University and the Institute of Geography and Geoecology (IFGG) of Karlsruhe Institute of Technology (KIT). 
 
 Trees are imported from GeoJSON files which contain information on tree location, species, and tree properties, and link to one or multiple point clouds. Example copied from website:
@@ -437,13 +437,13 @@ Trees are imported from GeoJSON files which contain information on tree location
 }
 ```
 
-#### Synthesis
+### Synthesis
 Open-source tools have little dedicated functionality to time-related variables in metadata. 4D-WORKS will extend workflows and software interfaces, which are considered in their current form to add onto existent interfaces. 
 Specifically, the new metadata concept may allow direct loading of 3D time series information in py4dgeo (optional parameter `metadata=[json]`, utility function `load_spatiotemporal_analysis_from_stac`), and future loading/visualization/editing functionality in CloudCompare will be considered.
 
-### Metadata file formats: JSON and YAML
+## Metadata file formats: JSON and YAML
 
-#### JSON (JavaScript Object Notation)
+### JSON (JavaScript Object Notation)
 
 <!-- ref
   - https://en.wikipedia.org/wiki/JSON
@@ -484,7 +484,7 @@ Specifically, the new metadata concept may allow direct loading of 3D time serie
     ```
 
 
-#### YAML (Yet Another Markup Language)
+### YAML (Yet Another Markup Language)
 
 <!-- ref:
 - https://en.wikipedia.org/wiki/YAML
@@ -524,7 +524,7 @@ Specifically, the new metadata concept may allow direct loading of 3D time serie
     doi: "xxxxxx"
     ```
 
-#### HDF5 (Hierarchical Data Formats version 5) 
+### HDF5 (Hierarchical Data Formats version 5) 
 
 *Put this here temporarily, as this should be a complete file system instead of just metadata files.*
 
@@ -545,7 +545,7 @@ Specifically, the new metadata concept may allow direct loading of 3D time serie
 
 
 
-### For Metadata: JSON vs YAML vs HDF5
+## For Metadata: JSON vs YAML vs HDF5
 
 
 |                   | JSON                                           | YAML                                     | HDF5                                                                                               |

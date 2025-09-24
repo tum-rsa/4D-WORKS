@@ -4,10 +4,10 @@ from pystac.utils import StringEnum, get_required, map_opt
 from typing import Literal, TypeVar, cast, Any, Generic, Dict, List, Optional
 
 
-TOPO4D_SCHEMA_URI = "https://stac-extensions.github.io/topo4d/v1.0.0/schema.json"
+TOPO4D_SCHEMA_URI = "https://tum-rsa.github.io/topo4d/v0.1.0/schema.json"
 PREFIX: str = "topo4d:"
 DATATYPE_PROP = PREFIX + "data_type"  # required
-TS_PROP = PREFIX + "tz" # String
+TS_PROP = PREFIX + "timezone" # String
 ACQUISITION_PROP = PREFIX + "acquisition_mode" # String
 DURATION_PROP = PREFIX + "duration"  # Float
 ORIENTATION_PROP = PREFIX + "orientation"  # String
@@ -144,7 +144,6 @@ class TrafoMeta:
         return f"<TrafoMeta {self.properties}>"
 
     def to_dict(self) -> Dict[str, Any]:
-        """Returns this metadata as a dictionary."""
         return self.properties
 
 
@@ -239,7 +238,7 @@ class Topo4DExtension(
     def apply(
         self,
         data_type: DataType | str | None = None,
-        tz: str | None = None,
+        timezone: str | None = None,
         acquisition_mode: str | None = None,
         duration: float | None = None,
         orientation: str | None = None,
@@ -254,7 +253,7 @@ class Topo4DExtension(
             self.item.stac_extensions.append(TOPO4D_SCHEMA_URI)
 
         self.data_type = data_type
-        self.tz = tz
+        self.timezone = timezone
         self.acquisition_mode = acquisition_mode
         self.duration = duration
         self.orientation = orientation
@@ -285,11 +284,11 @@ class Topo4DExtension(
     ########################################## Optional Properties #########################################
 
     @property
-    def tz(self) -> str | None:
+    def timezone(self) -> str | None:
         return self.properties.get(TS_PROP)
     
-    @tz.setter
-    def tz(self, v: str | None):
+    @timezone.setter
+    def timezone(self, v: str | None):
         self._set_property(TS_PROP, v, pop_if_none=True)
 
     @property

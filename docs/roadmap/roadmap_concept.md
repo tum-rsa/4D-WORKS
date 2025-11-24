@@ -4,6 +4,19 @@
 
 A standardized metadata practice would greatly improve interoperability, simplify reuse across RDM workflows by the ESS community, and encourage more 4D dataset publication by reducing preparation effort. To address this, we propose a metadata schema and automated curation workflow tailored to time-dependent point cloud data. The approach is demonstrated with use cases in laser scanning, photogrammetry and processing products to ensure community adoption and practical applicability.
 
+## Roadmap Overview
+
+This [metadata curation roadmap](roadmap/roadmap_concept.md) summarises how to ingest, construct, and search a STAC-based metadata using topo4d extension for topographic 3D time series data.
+
+- [Roadmap](roadmap/roadmap_concept.md) outlines the metadata ingestion, construction, and usage workflow.
+- [Related Work](roadmap/roadmap_related_work.md) surveys standards, repositories, and tools informing our approach.
+- [Topo4D Extension API](api/topo4d-extension.md) provides the STAC extension fields and validation helpers.
+- [Builder API](api/builder.md) provides helpers for making STAC Items using other community open-source tools, e.g., laspy, PDAL, etc..
+- [Notebook: make_STAC_kijkduin](notebooks/make_STAC_kijkduin.ipynb) example notebook building a STAC catalog from near-continuous terrestrial laser scanning point clouds.
+- [Notebook: make_STAC_Isar](notebooks/make_STAC_Isar.ipynb) example notebook building a STAC catalog involve multi-temporal multi-source point clouds and relevant products.
+- [Notebook: demo_stac_kijkduin](notebooks/demo_stac_kijkduin.ipynb) example notebook showcasing the usage of STAC catalog with analysis tools, e.g., py4dgeo.
+
+
 ## Introduction
 
 ![metadata_in_4d](./assets/metadata_in_4d.png)

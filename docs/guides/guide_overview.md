@@ -1,20 +1,19 @@
-# A Roadmap Towards Automatic Metadata Curation for 4D Topographic Observations
+# A Guide Towards Automatic Metadata Curation for 4D Topographic Observations
 
-4D topographic observations, i.e. dense 3D time series, are acquired using laser scanning or photogrammetry to assess changes in a scene throughout different points in time. Unlike traditional multitemporal datasets with only a few repeat point cloud acquisitions, the time series consist of a high number of epochs (typically hundreds to thousands; e.g., Vos et al. 2021, Anders et al. 2023) create a great challenge for consistent metadata handling. Especially, there is no standard or established practice regarding time-dependent metadata, starting from the timestamp of acquisitions. Essential processing information and products, such as transformation matrices required for time-dependent alignment of epochs, is not handled in a consistent manner and usually provided as supplementary files in formats tailored to the user-specific tools that were used for the processing. Reusing the data in different workflows and domains is tedious, as they often require customized scripts to handle the large volumes of 4D (3D+time) data. Especially with emerging efforts of research groups to publish such valuable datasets, the development of uniform and flexible metadata.
+4D topographic observations, i.e. dense 3D time series, are acquired using laser scanning or photogrammetry to assess changes in a scene throughout different points in time. Unlike traditional multitemporal datasets with only a few repeat point cloud acquisitions, the time series consist of a high number of epochs (typically hundreds to thousands; e.g., Vos et al. 2021[^Vos2021], Anders et al. 2023[^Anders2023]) create a great challenge for consistent metadata handling. Especially, there is no standard or established practice regarding time-dependent metadata, starting from the timestamp of acquisitions. Essential processing information and products, such as transformation matrices required for time-dependent alignment of epochs, is not handled in a consistent manner and usually provided as supplementary files in formats tailored to the user-specific tools that were used for the processing. Reusing the data in different workflows and domains is tedious, as they often require customized scripts to handle the large volumes of 4D (3D+time) data. Especially with emerging efforts of research groups to publish such valuable datasets, the development of uniform and flexible metadata.
 
 A standardized metadata practice would greatly improve interoperability, simplify reuse across RDM workflows by the ESS community, and encourage more 4D dataset publication by reducing preparation effort. To address this, we propose a metadata schema and automated curation workflow tailored to time-dependent point cloud data. The approach is demonstrated with use cases in laser scanning, photogrammetry and processing products to ensure community adoption and practical applicability.
 
-## Roadmap Overview
+## Guide Overview
 
-This [metadata curation roadmap](roadmap/roadmap_concept.md) summarises how to ingest, construct, and search a STAC-based metadata using topo4d extension for topographic 3D time series data.
+This documentation summarises how to ingest, construct, and search a STAC-based metadata using topo4d extension for topographic 3D time series data.
 
-- [Roadmap](roadmap/roadmap_concept.md) outlines the metadata ingestion, construction, and usage workflow.
-- [Related Work](roadmap/roadmap_related_work.md) surveys standards, repositories, and tools informing our approach.
-- [Topo4D Extension API](api/topo4d-extension.md) provides the STAC extension fields and validation helpers.
-- [Builder API](api/builder.md) provides helpers for making STAC Items using other community open-source tools, e.g., laspy, PDAL, etc..
-- [Notebook: make_STAC_kijkduin](notebooks/make_STAC_kijkduin.ipynb) example notebook building a STAC catalog from near-continuous terrestrial laser scanning point clouds.
-- [Notebook: make_STAC_Isar](notebooks/make_STAC_Isar.ipynb) example notebook building a STAC catalog involve multi-temporal multi-source point clouds and relevant products.
-- [Notebook: demo_stac_kijkduin](notebooks/demo_stac_kijkduin.ipynb) example notebook showcasing the usage of STAC catalog with analysis tools, e.g., py4dgeo.
+- [Guide](guide_overview.md) outlines the metadata ingestion, construction, and usage workflow.
+- [Topo4D Extension API](../api/topo4d-extension.md) provides the STAC extension fields and validation helpers.
+- [Builder API](../api/builder.md) provides helpers for making STAC Items using other community open-source tools, e.g., laspy, PDAL, etc..
+- [Notebook: make_STAC_kijkduin](../notebooks/make_STAC_kijkduin.ipynb) example notebook building a STAC catalog from near-continuous terrestrial laser scanning point clouds.
+- [Notebook: make_STAC_Isar](../notebooks/make_STAC_Isar.ipynb) example notebook building a STAC catalog involve multi-temporal multi-source point clouds and relevant products.
+- [Notebook: demo_stac_kijkduin](../notebooks/demo_stac_kijkduin.ipynb) example notebook showcasing the usage of STAC catalog with analysis tools, e.g., py4dgeo.
 
 
 ## Introduction
@@ -59,23 +58,7 @@ Our system for 4D topographic metadata curation is structured into three layers.
 
 This architecture ensures metadata are consistent, interoperable, and directly usable by both researchers and applications, lowering the barrier for sharing and reusing 4D datasets.
 
-<!-- ### Metadata Ingestion
+# References
 
-
-### Metadata Construction
-
-
-### Metadata Usage
- -->
-
-
-<!-- ## Use Cases and Data
-
-Multi-sensor multi-temporal UAV acquisition and processing products
-
-High-frequency terrestrial laser scanning (TLS) point clouds -->
-
-## References
-
-- S. Vos, K. Anders, M. Kuschnerus, R. Lindenbergh, B. Höfle, S. Aarninkhof, S. de Vries, “A high-resolution 4D terrestrial laser scan dataset of the Kijkduin beach-dune system, The Netherlands,” Sci Data 9, 191, Apr. 2022, doi: https://doi.org/10.1038/s41597-022-01291-9.
-- STAC SpatioTemporal Asset Catalogs. https://stacspec.org/en/
+[^Vos2021]: S. Vos, K. Anders, M. Kuschnerus, R. Lindenbergh, B. Höfle, S. Aarninkhof, S. de Vries, “A high-resolution 4D terrestrial laser scan dataset of the Kijkduin beach-dune system, The Netherlands,” Sci Data 9, 191, Apr. 2022, doi:https://doi.org/10.1038/s41597-022-01291-9.
+[^Anders2023]: K. Anders, L. Winiwarter and B. Höfle, "Improving Change Analysis From Near-Continuous 3D Time Series by Considering Full Temporal Information," in IEEE Geoscience and Remote Sensing Letters, vol. 19, pp. 1-5, 2022, Art no. 3511105, doi: https://doi.org/10.1109/LGRS.2022.3148920.

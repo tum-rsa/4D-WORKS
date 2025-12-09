@@ -59,13 +59,13 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - tables
+  - footnotes
   - toc:
       permalink: true
 nav:
   - Home: index.md
-  - Roadmap:
-    - Concept: roadmap/roadmap_concept.md
-    - Related Work: roadmap/roadmap_related_work.md
+  - Guide:
+    - Overview: guides/guide_overview.md
   - Notebooks:
     - STAC Isar: notebooks/make_STAC_Isar.ipynb
     - STAC Kijkduin: notebooks/make_STAC_kijkduin.ipynb

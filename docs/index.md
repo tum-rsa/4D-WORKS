@@ -6,10 +6,9 @@ Topographic 3D time series acquired through laser scanning or photogrammetry bec
 This work is funded by the German Research Foundation (DFG) in the frame of the National Research Data Infrastructure program [NFDI4EARTH](https://www.nfdi4earth.de/) (project number: 460036893).
 
 ## Resources
-[Roadmap](roadmap/roadmap_concept.md)  
-4D-WORKS ([Project website](https://www.asg.ed.tum.de/en/rsa/research/4d-works/) | [GitHub](https://github.com/tum-rsa/4D-WORKS) )   
-[topo4d STAC Extension (GitHub)](https://github.com/tum-rsa/topo4d)  
-[Zenodo?]()  
+- 4D-WORKS ([Project website](https://www.asg.ed.tum.de/en/rsa/research/4d-works/) | [Guide](https://tum-rsa.github.io/4D-WORKS/)  | [GitHub](https://github.com/tum-rsa/4D-WORKS))   
+- topo4d STAC Extension ([GitHub](https://github.com/tum-rsa/topo4d))
+- Zenodo (DOI: [10.5281/zenodo.17867923](https://doi.org/10.5281/zenodo.17867923))
 
 ## References
 

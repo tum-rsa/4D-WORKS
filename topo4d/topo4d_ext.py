@@ -4,7 +4,7 @@ from pystac.utils import StringEnum, get_required, map_opt
 from typing import Literal, TypeVar, cast, Any, Generic, Dict, List, Optional
 
 
-TOPO4D_SCHEMA_URI = "https://tum-rsa.github.io/topo4d/v0.1.0/schema.json"
+TOPO4D_SCHEMA_URI = "https://tum-rsa.github.io/topo4d/v0.2.0/schema.json"
 PREFIX: str = "topo4d:"
 DATATYPE_PROP = PREFIX + "data_type"  # required
 TS_PROP = PREFIX + "timezone" # String
@@ -12,7 +12,7 @@ ACQUISITION_PROP = PREFIX + "acquisition_mode" # String
 DURATION_PROP = PREFIX + "duration"  # Float
 ORIENTATION_PROP = PREFIX + "orientation"  # String
 SPATIAL_RES_PROP = PREFIX + "spatial_resolution" # Float
-MEASUREMENT_ERR_PROP = PREFIX + "measurement_error" # Float
+MEASUREMENT_ERR_PROP = PREFIX + "positional_accuracy" # Float
 TRAFO_GLOBAL_PROP = PREFIX + "global_trafo" # Array
 TRAFO_META_PROP = PREFIX + "trafometa" # Object
 PRODUCT_META_PROP = PREFIX + "productmeta" # Object
@@ -243,7 +243,7 @@ class Topo4DExtension(
         duration: float | None = None,
         orientation: str | None = None,
         spatial_resolution: float | None = None,
-        measurement_error: float | None = None,
+        positional_accuracy: float | None = None,
         global_trafo: list | None = None,
         trafometa: TrafoMeta| dict | None = None,
         productmeta: ProductMeta | dict | None = None
@@ -258,7 +258,7 @@ class Topo4DExtension(
         self.duration = duration
         self.orientation = orientation
         self.spatial_resolution = spatial_resolution
-        self.measurement_error = measurement_error
+        self.positional_accuracy = positional_accuracy
         self.global_trafo = global_trafo
         self.trafometa = trafometa
         self.productmeta = productmeta
@@ -331,11 +331,11 @@ class Topo4DExtension(
 
 
     @property
-    def measurement_error(self) -> float | None:
+    def positional_accuracy(self) -> float | None:
         return self.properties.get(MEASUREMENT_ERR_PROP)
     
-    @measurement_error.setter
-    def measurement_error(self, v: float | None):
+    @positional_accuracy.setter
+    def positional_accuracy(self, v: float | None):
         self._set_property(MEASUREMENT_ERR_PROP, v, pop_if_none=True)
 
     @property

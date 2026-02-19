@@ -71,7 +71,7 @@ nav:
     - STAC Kijkduin: notebooks/make_STAC_kijkduin.ipynb
     - STAC with py4dgeo: notebooks/demo_stac_kijkduin.ipynb
   - API Reference:
-    - Topo4D Extension: api/topo4d-extension.md
+    - topo4D Extension: api/topo4d-extension.md
     - Builder Utilities: api/builder.md
 
 extra:

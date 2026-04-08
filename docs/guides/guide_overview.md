@@ -2,9 +2,9 @@
 
 4D topographic data, i.e. dense 3D time series, have become increasingly available through near-continuous in-situ observation using, e.g., laser scanning or photogrammetry, to capture Earth surface dynamics across time (Lindenbergh et al., 2025[^Lindenbergh2025]). Unlike traditional multitemporal datasets with only a few repeat point cloud acquisitions, the time series consist of a high number of epochs (typically hundreds to thousands; e.g., Vos et al. 2021[^Vos2021], Anders et al. 2022[^Anders2022]) and create a great challenge for consistent metadata handling due to a lack of established practices regarding time-dependent metadata. Essential processing information and products, such as transformation matrices required for time-dependent alignment of epochs, has not yet been handled in a consistent manner and usually provided as supplementary files in formats tailored to the user-specific tools that were used for the processing. Reusing the data in different workflows and domains can thus be tedious, as they often require customized scripts to read the large volumes of 4D (3D+time) data. Especially with emerging efforts of research groups to publish such valuable datasets, the development of uniform and flexible metadata practices is a timely effort to establish a cross-community practice.
 
-The aim of our 4D-WORKS metadata practice is to improve interoperability, simplify reuse across Research Data Management (RDM) workflows by the Earth System Science (ESS) community, and encourage increasing 4D dataset publication by reducing preparation effort. To address this, we propose a metadata schema and automated curation workflow tailored to time-dependent topographic datasets, with a special focus on near-continuous time series and multi-source data. The approach is demonstrated for different use cases and application scenarios, integrating various data sources (in-situ laser scanning and photogrammetry, satellite imagery) and processing products to foster community adoption and practical applicability. [TODO: state explicitly here the STAC extension? as this is a guide and not proposal]
+The aim of our 4D-WORKS metadata practice is to improve interoperability, simplify reuse across Research Data Management (RDM) workflows by the Earth System Science (ESS) community, and encourage increasing 4D dataset publication by reducing preparation effort. To address this, we propose a metadata schema and automated curation workflow tailored to time-dependent topographic datasets, implemented as a dedicated Topographic 4D ([topo4d](https://github.com/tum-rsa/topo4d)) extension of the SpatioTemporal Asset Catalog (STAC). The extension formalizes how time-dependent metadata (e.g., epoch-wise transformations, acquisition parameters, and derived products) can be structured, validated, and shared in a machine-readable and interoperable way.
 
-[TODO can we integrate a more holistic view here, incorporating also other references (photogrammetry time series, spatiotemporal satellite topo time series, ...)]
+While early developments in 4D topographic monitoring have largely focused on terrestrial laser scanning (TLS), similar challenges arise across a broader range of observation techniques. Photogrammetric time series derived from UAV or ground-based imagery increasingly provide dense multi-temporal surface reconstructions, while satellite-based elevation products (e.g., stereo imagery, InSAR, or multi-spectral imagery) contribute to large-scale spatiotemporal Earth monitoring. Across all these data, consistent handling of time-dependent metadata, such as acquisition details, processing parameters, and epoch-wise transformations, remains a common challenge. The 4D-WORKS approach is therefore designed to be sensor-agnostic, supporting multi-source datasets and enabling integration of heterogeneous time series within a unified metadata framework.
 
 ## Guide Overview
 
@@ -14,7 +14,7 @@ This documentation summarises how to ingest, construct, and search a STAC-based 
 - [Topo4D Extension API](../api/topo4d-extension.md) provides the STAC extension fields and validation helpers.
 - [Builder API](../api/builder.md) provides helpers for making STAC Items using other community open-source tools, e.g., laspy, PDAL, etc.
 - [Notebook: make_STAC_kijkduin](../notebooks/make_STAC_kijkduin.ipynb) is an example notebook building a STAC catalog from near-continuous terrestrial laser scanning point clouds.
-- [Notebook: make_STAC_Isar](../notebooks/make_STAC_Isar.ipynb) is an example notebook building a STAC catalog from multi-temporal multi-source in-situ point clouds and satellite imagery, including relevant change analysis products. [TODO is the satellite imagery integrated here? and the TLS (not mentioned yet)?]
+- [Notebook: make_STAC_Isar](../notebooks/make_STAC_Isar.ipynb) is an example notebook building a STAC catalog from multi-temporal multi-source in-situ point clouds, including relevant change analysis products.
 - [Notebook: demo_stac_kijkduin](../notebooks/demo_stac_kijkduin.ipynb) is an example notebook showcasing the usage of STAC catalog with change analysis tools, here, py4dgeo.
 
 
@@ -44,7 +44,7 @@ Establishing a consistent metadata framework is therefore crucial to ensure inte
 ## Prerequisites
 
 Before using the Topo4D metadata curation framework, some basic knowledge and tools are required. Users should be familiar with point cloud data formats (e.g., LAS/LAZ), common metadata standards, and the SpatioTemporal Asset Catalog ([STAC](https://stacspec.org/en/tutorials/intro-to-stac/)). 
-A Python environment with the provided toolkit [topo4D Extension API](../api/topo4d-extension.md), as well as access to representative survey data [demo data TODO]() from laser scanning or photogrammetry, is recommended.
+A Python environment with the provided toolkit [topo4D Extension API](../api/topo4d-extension.md), as well as access to representative survey data [demo data](https://doi.org/10.5281/zenodo.17867922) <!-- TODO update the demo data link --> from laser scanning or photogrammetry, is recommended.
 
 ## Metadata Curation Workflow
 
@@ -60,7 +60,16 @@ Our system for 4D topographic metadata curation is structured into three layers.
 - User Layer: Organizes the curated metadata into STAC items and catalogs for 3D and 4D datasets, enabling efficient search, discovery, and reuse across domains.
 
 This architecture ensures metadata are consistent, interoperable, and directly usable by both researchers and applications, lowering the barrier for sharing and reusing 4D datasets.
-[TODO: somehow ending abruptly here - where does the user go next? what is the end/next entry point?]
+
+## Next Steps
+
+In practice, users typically interact with this framework through a combination of notebooks and example data. To get started, you can follow the step-by-step notebooks provided in this guide, which demonstrate how to:
+
+- extract metadata from raw datasets,
+- construct STAC Items and Collections using the topo4D extension, and
+- query and utilize the curated metadata in downstream analysis workflows.
+
+We recommend beginning with the Kijkduin example [notebook](../notebooks/make_STAC_kijkduin.ipynb), which introduces the full pipeline from raw point clouds to a searchable STAC catalog, before exploring more advanced multi-source scenarios such as the Isar example [notebook](../notebooks/make_STAC_Isar.ipynb).
 
 # References
 

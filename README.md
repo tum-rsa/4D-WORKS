@@ -26,23 +26,26 @@ The ***origin*** is the private repo [4D-WORKS-dev](https://github.com/tum-rsa/4
   - [ ] install markdown/pdf
   - [ ] env.yaml
   - [ ] data on zenodo/mediaTUM
-- [ ] Re-organize the tutorial repo structure. **@JW**
-  - [ ] tutorial notebooks are under [tutoral/](./docs/tutorial/)
-- [ ] Isar demo data: 5 epochs, 200 MB (uncompressed) per epoch, plus 2 sentinel-2 images. **@PG**
-  - [ ] downsampled point clouds in copc.laz format
-  - [ ] 2 sentinel-2 images (could be from a STAC catalog)
+- [x] Re-organize the tutorial repo structure. **@JW**
+  - [x] tutorial notebooks are under [tutoral/](./docs/tutorial/)
+- [x] Isar demo data: 5 epochs, 200 MB (uncompressed) per epoch, plus 2 sentinel-2 images. **@PG**
+  - [x] downsampled point clouds in copc.laz format
 - [ ] [NB1](./docs/tutorial/01_data2catalog.ipynb): From data to STAC. (Isar demo data) **@JW**
-  - [ ] helper fun()
-  - [ ] input: fetch data from public/local
-  - [ ] output: a STAC catalog
+  - [x] helper fun()
+  - [x] input: fetch data from public/local
+  - [ ] update asset links with public repo address
+  - [x] output: a STAC catalog
 - [ ] [NB2](./docs/tutorial/02_query_catalog.ipynb): Query and filtering STAC to fetch selected data. **@PM**
-  - [ ] input: a STAC catalog
-  - [ ] interpretation, plotting, filtering
+  - [x] input: a STAC catalog
+  - [x] interpretation, plotting, filtering
+  - [x] display 2 sentinel-2 images (could be from a STAC catalog)
   - [ ] output: download filtered data assets
+  - [ ] refinement with more interactivity (e.g., optional downloads, different colors in map visualization)
 - [ ] [NB3](./docs/tutorial/03_catalog4analysis.ipynb): Perform a simple analysis (e.g., M3C2 by py4dgeo) and visualize (by CC/QGIS) with downloaded assets. **@XH**
-  - [ ] input: data assets
-  - [ ] two ways: programming-based and gui-based
-  - [ ] output: a map/plot of the analysis product (e.g., M3C2 distance map)
+  - [x] input: data assets
+  - [x] two ways: programming-based and gui-based
+  - [x] output: a map/plot of the analysis product (e.g., M3C2 distance map)
+  - [ ] refinement of visuals (./tutorial/assets/*)
 - [ ] [demo](./demo/): use Kijkduin catalog to present a minimal potree project. **@PM**
   - [ ] input: Kijkduin catalog, a demo potree repo, a one-touch deploy script.
   - [ ] output: a self-hosted STAC catalog and potree service

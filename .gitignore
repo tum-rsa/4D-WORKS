@@ -36,11 +36,11 @@ __pycache__/
 *.laz
 *.las
 demo/
-# Isar
+data/
 csv
 
-# Claude
-CLAUDE.md
+# temp
+temp/
 
 # setup
 setup.py

@@ -10,13 +10,26 @@ import json
 from pathlib import Path
 import os
 
+def pointcloud_media_type(file_path: Path) -> str:
+    """Return a STAC media type for the point-cloud asset."""
+    name = file_path.name.lower()
+
+    if name.endswith(".copc.laz"):
+        return "application/vnd.laszip+copc"
+    if name.endswith(".laz"):
+        return "application/vnd.laszip"
+    if name.endswith(".las"):
+        return "application/vnd.las"
+
+    return "application/octet-stream" 
+
 def make_item_asset(asset_url: str, user_input: dict):
 
     asset_name = user_input.get('data_type', 'data')
 
     asset = Asset(
         href=asset_url,
-        media_type="application/vnd.laszip+copc",
+        media_type=pointcloud_media_type(Path(asset_url)),
         roles=["data"]
     )
 

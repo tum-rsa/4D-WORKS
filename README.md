@@ -30,10 +30,10 @@ The ***origin*** is the private repo [4D-WORKS-dev](https://github.com/tum-rsa/4
   - [x] tutorial notebooks are under [tutoral/](./docs/tutorial/)
 - [x] Isar demo data: 5 epochs, 200 MB (uncompressed) per epoch, plus 2 sentinel-2 images. **@PG**
   - [x] downsampled point clouds in copc.laz format
-- [ ] [NB1](./docs/tutorial/01_data2catalog.ipynb): From data to STAC. (Isar demo data) **@JW**
+- [x] [NB1](./docs/tutorial/01_data2catalog.ipynb): From data to STAC. (Isar demo data) **@JW**
   - [x] helper fun()
   - [x] input: fetch data from public/local
-  - [ ] update asset links with public repo address
+  - [x] update asset links with public repo address
   - [x] output: a STAC catalog
 - [ ] [NB2](./docs/tutorial/02_query_catalog.ipynb): Query and filtering STAC to fetch selected data. **@PM**
   - [x] input: a STAC catalog

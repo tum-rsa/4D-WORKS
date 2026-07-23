@@ -10,7 +10,7 @@ This work is funded by the German Research Foundation (DFG) in the frame of the 
 - 4D-WORKS ([Project website](https://www.asg.ed.tum.de/en/rsa/research/4d-works/) | [Guide](https://tum-rsa.github.io/4D-WORKS/)  | [GitHub](https://github.com/tum-rsa/4D-WORKS))   
 - topo4d STAC Extension ([GitHub](https://github.com/tum-rsa/topo4d))
 - Roadmap Zenodo (DOI: [10.5281/zenodo.17867923](https://doi.org/10.5281/zenodo.17867923))
-- Publication: Wang, J., Huang, X., Maydhisudhiwongs, P., Letard, M., Teuscher, B., Gyawali, P., Werner, M., and Anders, K.: topo4d: Topographic 4D STAC Extension for Curating and Cataloging Multi-Source Geospatial Time Series Datasets, ISPRS Ann. Photogramm. Remote Sens. Spatial Inf. Sci., XI-2-2026, 545–552, https://doi.org/10.5194/isprs-annals-XI-2-2026-545-2026, 2026. 
+- Publication: Wang, J., Huang, X., Maydhisudhiwongs, P., Letard, M., Teuscher, B., Gyawali, P., Werner, M., and Anders, K.: topo4d: Topographic 4D STAC Extension for Curating and Cataloging Multi-Source Geospatial Time Series Datasets, ISPRS Ann. Photogramm. Remote Sens. Spatial Inf. Sci., XI-2-2026, 545–552, [https://doi.org/10.5194/isprs-annals-XI-2-2026-545-2026](https://doi.org/10.5194/isprs-annals-XI-2-2026-545-2026), 2026. 
 
 
 

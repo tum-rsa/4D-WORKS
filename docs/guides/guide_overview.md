@@ -16,6 +16,9 @@ This documentation summarises how to ingest, construct, and search a STAC-based 
 - [Notebook: make_STAC_kijkduin](../notebooks/make_STAC_kijkduin.ipynb) is an example notebook building a STAC catalog from near-continuous terrestrial laser scanning point clouds.
 - [Notebook: make_STAC_Isar](../notebooks/make_STAC_Isar.ipynb) is an example notebook building a STAC catalog from multi-temporal multi-source in-situ point clouds, including relevant change analysis products.
 - [Notebook: demo_stac_kijkduin](../notebooks/demo_stac_kijkduin.ipynb) is an example notebook showcasing the usage of STAC catalog with change analysis tools, here, py4dgeo.
+- [Tutorial-01: data2catalog](../tutorial/01_data2catalog.ipynb) shows how to prepare a catalog for a public dataset.
+- [Tutorial-02: catalog2download](../tutorial/02_catalog2download.ipynb) shows how to inspect a catalog from a public data repository (e.g., Zenodo), filter its items, and download selected data assets.
+- [Tutorial-03: catalog4analysis](../tutorial/03_catalog4analysis.ipynb) demonstrates how the downloaded data can be used in an example analysis.
 
 
 ## Introduction

@@ -70,6 +70,10 @@ nav:
     - STAC Isar: notebooks/make_STAC_Isar.ipynb
     - STAC Kijkduin: notebooks/make_STAC_kijkduin.ipynb
     - STAC with py4dgeo: notebooks/demo_stac_kijkduin.ipynb
+  - Tutorials:
+    - T01 data2catalog: tutorial/01_data2catalog.ipynb
+    - T02 catalog2download: tutorial/02_catalog2download.ipynb
+    - T03 catalog4analysis: tutorial/03_catalog4analysis.ipynb
   - API Reference:
     - topo4D Extension: api/topo4d-extension.md
     - Builder Utilities: api/builder.md
